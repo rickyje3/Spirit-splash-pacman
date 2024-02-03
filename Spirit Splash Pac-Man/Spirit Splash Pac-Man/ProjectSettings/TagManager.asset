@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Duck
+  - SuperDuck
+  - Food
+  - Node
+  - Enemy
   layers:
   - Default
   - TransparentFX
