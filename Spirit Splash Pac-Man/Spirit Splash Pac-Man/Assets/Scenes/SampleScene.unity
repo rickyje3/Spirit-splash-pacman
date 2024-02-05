@@ -10896,6 +10896,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1829066350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1920079671393520909, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
+  m_PrefabInstance: {fileID: 7026418985447426740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1829066353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1829066350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0c0287e11987654fbaaed141f6670c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  scoreText: {fileID: 596275070}
+  duckText: {fileID: 411419781}
+  scoreValue: 0
+  player: {fileID: 1829066350}
+  winText: {fileID: 749803415}
+  loseText: {fileID: 83776856}
+  initialDirection: {x: 0, y: 0}
+  Duck: {fileID: 0}
+  SuperDuck: {fileID: 0}
+  DuckLimit: 0
+  livesText: {fileID: 593578212}
+  playerRespawn: {fileID: 0}
 --- !u!1001 &7026418985447426740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10976,10 +11006,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2582962302293825162, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
+    - {fileID: 799347558581794582, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1920079671393520909, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1829066353}
   m_SourcePrefab: {fileID: 100100000, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
