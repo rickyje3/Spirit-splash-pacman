@@ -103,18 +103,26 @@ MonoBehaviour:
   speed: 3
   scoreText: {fileID: 0}
   duckText: {fileID: 0}
+  nextLevelText: {fileID: 0}
   player: {fileID: 1920079671393520909}
+  BlueKnight: {fileID: 0}
+  GreenKnight: {fileID: 0}
+  PinkKnight: {fileID: 0}
+  YellowKnight: {fileID: 0}
   winText: {fileID: 0}
   loseText: {fileID: 0}
   initialDirection: {x: 0, y: 0}
   Duck: {fileID: 8804565442795287879, guid: 15f38ca4602ca3148b77d944b0cbcfe0, type: 3}
   SuperDuck: {fileID: 4369544409922478263, guid: bddcf6ebe172c344fad3790ba5211619, type: 3}
-  DuckLimit: 180
+  DuckLimit: 176
+  isSuperMode: 0
+  timeSuper: 10
   livesText: {fileID: 0}
   playerRespawn: {fileID: 0}
+  enemyRespawn: {fileID: 0}
   obstacleLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
 --- !u!114 &799347558581794582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +156,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1886791636a9fa94d86d5ae82471630e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -157,7 +165,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!58 &3900514418113362127
 CircleCollider2D:
@@ -169,7 +177,7 @@ CircleCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 1886791636a9fa94d86d5ae82471630e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -193,5 +201,5 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.0014947951, y: 0.00072054565}
-  m_Radius: 0.15721533
+  m_Offset: {x: 0, y: -0.005}
+  m_Radius: 0.15822066

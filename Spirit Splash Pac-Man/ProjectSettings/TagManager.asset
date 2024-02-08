@@ -9,6 +9,13 @@ TagManager:
   - Food
   - Node
   - Enemy
+  - Obstacle
+  - LeftPassage
+  - RightPassage
+  - Blue
+  - Yellow
+  - Pink
+  - Green
   layers:
   - Default
   - TransparentFX

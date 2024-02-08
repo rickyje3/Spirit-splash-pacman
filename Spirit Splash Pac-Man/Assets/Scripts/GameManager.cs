@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public EnemyScript[] enemies;
+    //public EnemyScript enemy;
     public PlayerScript player;
     public Transform ducks;
-    PlayerScript isGameOver;
+    private PlayerScript isGameOver;
 
     public int lives { get; private set; }
 
-    void Start()
+    private void Start()
     {
         NewGame();
         PlayerScript.isGameOver = false;
@@ -57,40 +59,13 @@ public class GameManager : MonoBehaviour
     {
         PlayerScript.isGameOver = true;
 
-        //Does not reset the enemy count when the level ends
+        //Does not (Should not) reset the enemy count when the level ends
         for (int i = 0; i < this.enemies.Length; i++)
         {
             this.enemies[i].gameObject.SetActive(false);
         }
 
-        //Does not reset the player count when the level ends
+        //Does not (Should not) reset the player count when the level ends
         this.player.gameObject.SetActive(false);
-    }
-
-    private void SetLives(int lives)
-    {
-        this.lives = lives;
-    }
-
-    public void EnemyDefeat(PlayerScript Enemy)
-    {
-        
-    }
-
-    public void PlayerDefeat()
-    {
-        this.player.gameObject.SetActive(false);
-        SetLives(this.lives - 1);
-
-        if (this.lives > 0)
-        {
-            //Delays reset state by 3 seconds before calling
-            Invoke(nameof(ResetState), 3.0f);
-        }
-        else
-        {
-            GameOver();
-        }
-
     }
 }

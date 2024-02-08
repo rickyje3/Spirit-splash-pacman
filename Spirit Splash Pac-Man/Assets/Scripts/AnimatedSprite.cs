@@ -12,13 +12,13 @@ public class AnimatedSprite : MonoBehaviour
     //Animation will almost always loop
     public bool loop = true;
 
-    void Awake()
+    private void Awake()
     {
         //Allows you to call this.spriteRenderer in other scripts to call it rather than GetComponent every time
         this.spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    void Start()
+    private void Start()
     {   //Repeatedly call Advance every 0.25 seconds. First is initial time, second is every time after.
         InvokeRepeating(nameof(Advance), this.animationTime, this.animationTime);
     }
