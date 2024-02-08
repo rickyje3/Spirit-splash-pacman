@@ -41,6 +41,7 @@ public class PlayerScript : MonoBehaviour
     public Transform enemyRespawn;
     public LayerMask obstacleLayer;
     EnemyScript enemyScript;
+    private int level;
 
 
     // Start is called before the first frame update
@@ -56,6 +57,7 @@ public class PlayerScript : MonoBehaviour
         isGameOver = false;
         DuckValue = 0;
         isSuperMode = false;
+        level = 1;
     }
 
     private void ResetState()
@@ -119,10 +121,12 @@ public class PlayerScript : MonoBehaviour
         duckText.SetText("Ducks Caught: " + DuckValue);
         livesText.SetText("Lives: " + lives);
 
+        //Debug to automatically go to level 2
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             SceneManager.UnloadSceneAsync("SampleScene");
             SceneManager.LoadScene("Level2");
+            level = 2;
         }
 
         //brings u to level two when u press the spacebar when u collect all the ducks
@@ -133,10 +137,15 @@ public class PlayerScript : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 SceneManager.UnloadSceneAsync("SampleScene");
-                SceneManager.LoadScene("Level2");                
+                SceneManager.LoadScene("Level2");   
+                level = 2;             
             }
         }
 
+        if (level == 2)
+        {
+            isGameOver = false;
+        }
        
 
         //if next direction isn't 0, set as current direction
@@ -361,6 +370,13 @@ public class PlayerScript : MonoBehaviour
             winText.SetActive(true);
             speed = 0;
             nextLevelText.SetActive(true);
+            if (level == 2)
+            {
+                nextLevelText.SetActive(false);
+                isGameOver = true;
+                winText.SetActive(true);
+                speed = 0;
+            }
         }
     }
 
