@@ -68,4 +68,17 @@ public class GameManager : MonoBehaviour
         //Does not (Should not) reset the player count when the level ends
         this.player.gameObject.SetActive(false);
     }
+
+    private void Lost()
+    {
+        if (this.player.lost == 1)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+               // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
+                SceneManager.LoadSceneAsync(0);
+                print("main menu");
+            }
+        }
+    }
 }

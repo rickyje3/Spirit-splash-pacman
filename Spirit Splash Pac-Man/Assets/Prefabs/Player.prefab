@@ -104,6 +104,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   duckText: {fileID: 0}
   nextLevelText: {fileID: 0}
+  mainMenuText: {fileID: 0}
   player: {fileID: 1920079671393520909}
   BlueKnight: {fileID: 0}
   GreenKnight: {fileID: 0}
@@ -123,6 +124,7 @@ MonoBehaviour:
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 512
+  lost: 0
 --- !u!114 &799347558581794582
 MonoBehaviour:
   m_ObjectHideFlags: 0

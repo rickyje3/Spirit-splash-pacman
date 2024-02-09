@@ -13,6 +13,7 @@ public class PlayerScript : MonoBehaviour
     public TMP_Text scoreText;
     public TMP_Text duckText;
     public GameObject nextLevelText;
+    public GameObject mainMenuText;
     public int scoreValue { get; private set; }
     public GameObject player;
     public GameObject BlueKnight;
@@ -43,6 +44,8 @@ public class PlayerScript : MonoBehaviour
     EnemyScript enemyScript;
     private int level;
 
+    public int lost;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -54,10 +57,12 @@ public class PlayerScript : MonoBehaviour
         winText.SetActive(false);
         loseText.SetActive(false);
         nextLevelText.SetActive(false);
+        mainMenuText.SetActive(false);
         isGameOver = false;
         DuckValue = 0;
         isSuperMode = false;
         level = 1;
+        lost = 0;
     }
 
     private void ResetState()
@@ -128,11 +133,16 @@ public class PlayerScript : MonoBehaviour
             SceneManager.LoadScene("Level2");
             level = 2;
         }
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            DuckValue = 180;
+            isGameOver = true;
+        }
 
         //brings u to level two when u press the spacebar when u collect all the ducks
         if (isGameOver == true)
         {
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             speed = 0;
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -144,9 +154,18 @@ public class PlayerScript : MonoBehaviour
 
         if (level == 2)
         {
-            isGameOver = false;
+            isGameOver = true;
         }
-       
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (lost == 1)
+                {
+                // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
+                    SceneManager.LoadSceneAsync(0);
+                    print("main menu");
+                }
+        }
 
         //if next direction isn't 0, set as current direction
         //it will try every frame to go in that direction until the layer is unoccupied
@@ -386,12 +405,12 @@ public class PlayerScript : MonoBehaviour
         if (lives <= 0)
         {
             loseText.SetActive(true);
+            mainMenuText.SetActive(true);
             isGameOver = true;
-            player.gameObject.SetActive(false);
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); // this loads the currently active scene
-            }                     
+            lost = 1;
+            //player.gameObject.SetActive(false);
+            print("gameover");
+                     
         }
     }
 }
