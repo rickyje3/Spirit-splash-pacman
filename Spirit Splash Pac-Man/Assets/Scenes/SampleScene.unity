@@ -27298,10 +27298,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1038976734}
     - target: {fileID: 2582962302293825162, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
-      propertyPath: DuckLimit
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 2582962302293825162, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: livesText
       value: 
       objectReference: {fileID: 1341129916}
@@ -27321,10 +27317,6 @@ PrefabInstance:
       propertyPath: GreenKnight
       value: 
       objectReference: {fileID: 364795504}
-    - target: {fileID: 2582962302293825162, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
-      propertyPath: isSuperMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2582962302293825162, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: YellowKnight
       value: 
@@ -27363,15 +27355,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3962934070908282315, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3962934070908282315, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3962934070908282315, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3962934070908282315, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27399,8 +27391,8 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 93851232}
   - {fileID: 519420032}
+  - {fileID: 93851232}
   - {fileID: 1038976731}
   - {fileID: 619394802}
   - {fileID: 7026418985447426740}

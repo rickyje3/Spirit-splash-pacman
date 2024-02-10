@@ -44,12 +44,15 @@ public class PlayerScript : MonoBehaviour
     EnemyScript enemyScript;
     private int level;
 
-    public int lost;
+    int sceneID;
 
+    public int lost;
+    public AudioSource walkSound, duckSound, superSound, bonusSound, enemyDefeatSound, playerDefeatSound;
 
     // Start is called before the first frame update
     private void Start()
     {
+        sceneID = SceneManager.GetActiveScene().buildIndex;
         rgbd = GetComponent<Rigidbody2D>();
         ResetState();
         //startingPosition = transform.position;
@@ -133,7 +136,7 @@ public class PlayerScript : MonoBehaviour
             SceneManager.LoadScene("Level2");
             level = 2;
         }
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.F1)) // Also Debug
         {
             DuckValue = 180;
             isGameOver = true;
@@ -144,11 +147,21 @@ public class PlayerScript : MonoBehaviour
         {
             //Time.timeScale = 0;
             speed = 0;
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (sceneID == 1)
             {
-                SceneManager.UnloadSceneAsync("SampleScene");
-                SceneManager.LoadScene("Level2");   
-                level = 2;             
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    //SceneManager.UnloadSceneAsync("SampleScene");
+                    SceneManager.LoadScene("Level2");   
+                    level = 2;             
+                }
+            }
+            if (sceneID == 2)
+            {
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    SceneManager.LoadScene("CreditsScene");
+                }
             }
         }
 
@@ -182,10 +195,22 @@ public class PlayerScript : MonoBehaviour
         if (isSuperMode == true)
         {
             superModeTimer -= Time.deltaTime;
+            superSound.enabled = true;
             if (superModeTimer < 0)
             {
+                superSound.enabled = false;
                 isSuperMode = false;
             }
+        }
+
+        if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
+        {
+            walkSound.enabled = true;
+            print("walking");
+        }
+        else
+        {
+            walkSound.enabled = false;
         }
     }
 
@@ -237,6 +262,7 @@ public class PlayerScript : MonoBehaviour
             Debug.Log(DuckLimit + "Ducks Caught");
             Destroy(collision.collider.gameObject);
             //ADD A DUCK SOUND TO THIS
+            duckSound.Play();
         }
         if (collision.gameObject.tag == "SuperDuck")
         {
@@ -251,6 +277,7 @@ public class PlayerScript : MonoBehaviour
             superModeTimer = timeSuper;
             Destroy(collision.collider.gameObject);
             //ADD A SOUND TO THIS
+            duckSound.Play();
         }
         if (collision.gameObject.tag == "Food")
         {
@@ -258,6 +285,7 @@ public class PlayerScript : MonoBehaviour
             scoreValue += 500;
             Destroy(collision.collider.gameObject);
             //ADD A SOUND TO THIS
+            bonusSound.Play();
         }
         
         //ADD A SOUND TO THIS (Player running into enemy)
@@ -267,12 +295,14 @@ public class PlayerScript : MonoBehaviour
             if (isSuperMode == true)
             {
                 scoreValue += 500;               
-                BlueKnightResetState(); 
+                BlueKnightResetState();
+                enemyDefeatSound.Play(); 
             }
             if (isSuperMode == false)
             {
                 --lives;
                 Respawn();
+                playerDefeatSound.Play();
             }
 
         }
@@ -285,11 +315,13 @@ public class PlayerScript : MonoBehaviour
             {
                 scoreValue += 500;
                 YellowKnightResetState();
+                enemyDefeatSound.Play(); 
             }
             if (isSuperMode == false)
             {
                 --lives;
                 Respawn();
+                playerDefeatSound.Play();
             }
         }
 
@@ -301,11 +333,13 @@ public class PlayerScript : MonoBehaviour
             {
                 scoreValue += 500;
                 GreenKnightResetState();
+                enemyDefeatSound.Play(); 
             }
             if (isSuperMode == false)
             {
                 --lives;
                 Respawn();
+                playerDefeatSound.Play();
             }
 
         }
@@ -318,11 +352,13 @@ public class PlayerScript : MonoBehaviour
             {
                 scoreValue += 500;
                 PinkKnightResetState();
+                enemyDefeatSound.Play(); 
             }
             if (isSuperMode == false)
             {
                 --lives;
                 Respawn();
+                playerDefeatSound.Play();
             }
         }
     }
