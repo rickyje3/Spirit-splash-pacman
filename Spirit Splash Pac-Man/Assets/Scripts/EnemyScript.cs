@@ -26,7 +26,6 @@ public class EnemyScript : MonoBehaviour
     private float distance;
     public LayerMask obstacleLayer;
 
-
 // Start is called before the first frame update
 private void Start()
     {
@@ -38,6 +37,7 @@ private void Start()
         StartLevelSpawn();
         GameObject.FindGameObjectsWithTag("Node");
         GameObject.FindGameObjectsWithTag("Player");
+
     }
 
     // Update is called once per frame

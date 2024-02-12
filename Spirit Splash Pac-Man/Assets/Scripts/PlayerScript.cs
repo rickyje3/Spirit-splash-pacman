@@ -24,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     public GameObject winText;
     public GameObject loseText;
     public Rigidbody2D rgbd { get; private set; }
-    public static bool isGameOver;
+    public static bool isGameOver = false;
     public Vector2 initialDirection;
     public Vector2 direction { get; private set; }
     public Vector2 nextDirection { get; private set; }
@@ -163,6 +163,10 @@ public class PlayerScript : MonoBehaviour
                     SceneManager.LoadScene("CreditsScene");
                 }
             }
+            BlueKnight.transform.position = enemyRespawn.position;
+            GreenKnight.transform.position = enemyRespawn.position;
+            YellowKnight.transform.position = enemyRespawn.position;
+            PinkKnight.transform.position = enemyRespawn.position;
         }
 
         if (level == 2)
@@ -446,7 +450,11 @@ public class PlayerScript : MonoBehaviour
             lost = 1;
             //player.gameObject.SetActive(false);
             print("gameover");
-                     
+            
+            BlueKnight.transform.position = enemyRespawn.position;
+            GreenKnight.transform.position = enemyRespawn.position;
+            YellowKnight.transform.position = enemyRespawn.position;
+            PinkKnight.transform.position = enemyRespawn.position;
         }
     }
 }
