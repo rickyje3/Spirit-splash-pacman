@@ -423,7 +423,7 @@ public class PlayerScript : MonoBehaviour
     //ADD A WIN SOUND TO THIS
     private void CheckIfDucksLeft()
     {
-        if(DuckValue >= 176)
+        if(DuckValue >= DuckLimit)
         {
             isGameOver = true;
             winText.SetActive(true);

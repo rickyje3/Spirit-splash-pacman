@@ -13968,7 +13968,7 @@ PrefabInstance:
       objectReference: {fileID: 1494923103}
     - target: {fileID: 2582962302293825162, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: DuckLimit
-      value: 173
+      value: 176
       objectReference: {fileID: 0}
     - target: {fileID: 2582962302293825162, guid: f28c324a7904b8849b1c8b1e1471e87c, type: 3}
       propertyPath: livesText
